@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chat Cafe Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class = jumbotron>
+        <h2>Welcome. Please login to chat.</h2>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader"><h3>Loading...</h3></div>
+    </div>
+
+
+    <script src='./js/fireBase.js'></script>
+    <script src='./js/login.js'></script>
+</body>
+
+<footer id = "footer" class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+       Chat Cafe (Caht Cfae).
+    </div>
+</footer>
+</html>

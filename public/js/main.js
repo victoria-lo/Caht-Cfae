@@ -1,10 +1,13 @@
 var firebase = app_fireBase;
 function init(){
-    var uid = null;
+    let name = "";
+    let uid = null;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          // User is signed in. Save the user id.
-          uid= user.id;
+          // User is signed in. Get their name and userID.
+          uid = user.uid;
+          name = user.displayName;
+          console.log(name);
         }else{
             //redirect to login page
             uid = null;
@@ -17,11 +20,11 @@ function init(){
 
 function logOut(){
     firebase.auth().signOut().then(function() {
-        // Sign-out successful.
         console.log("SIGN OUT");
         window.location.replace("login.html");
       }).catch(function(error) {
-        // An error happened.
+
+        console.error(error);
       });
 }
 

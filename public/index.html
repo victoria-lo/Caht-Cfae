@@ -20,28 +20,70 @@
     
 </head>
 <body>
-    <div class = "jumbotron">
-        <h2>Wleocme to Caht Cfae.</h2>
-        <h4>Tihs is a srtnage caht cfae. All the wrods are jmulbed ecxpet the fisrt and lsat wrods. Can you raed tehm?</h4>
-    </div>
-
-    <div class="container">
+    <div class = "container-fluid">
         <div class="header clearfix">
-          <nav>
-            <ul class="nav nav-pills float-right">
-              <li class="nav-item">
-                <button class="btn btn-outline-primary active" id = "chat" href = "index.html">Chat<span class="sr-only">(current)</span></button>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-outline-primary" id = "settings" type = "click">Settings</button>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-outline-primary" id = "log-out" type = "click">Log Out</button>
-              </li>
-            </ul>
+          <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1"><h4><b>Caht Cfae.</b></h4><i><p>Mesginsag app whti a tiswt.</p></i></span>
+            <form class="form-inline">
+              <button class="btn btn-outline-primary active" id = "chat" href = "index.html">Chat<span class="sr-only">(current)</span></button>
+              <button class="btn btn-outline-primary" id = "settings" type = "click">Settings</button>
+              <button class="btn btn-outline-primary" id = "log-out" type = "click">Log Out</button>
+            </form>
           </nav>
         </div>
+      
 
+      <div class = "chat">
+        <div class = "chat-window" id = "chat-window">
+          <ul id = "messages">
+            <li class="msg">
+              <span class = "msg-span">
+                <i class = "name">BunnyBoots:</i> Hello!
+              </span>
+            </li>
+            <li class="msg">
+              <span class = "msg-span">
+                <i class = "name">Torty:</i> Hello!
+              </span>
+            </li>
+            <li class="msg my">
+              <span class = "msg-span">
+                <i class = "name">Zeno:</i> Hello! It's me!
+              </span>
+            </li>
+            <li class="msg my">
+              <span class = "msg-span">
+                <i class = "name">Gray:</i> You sure?!
+              </span>
+            </li>
+            <li class="msg">
+              <span class = "msg-span">
+                <i class = "name">BunnyBoots:</i> Hello!
+              </span>
+            </li>
+            <li class="msg">
+              <span class = "msg-span">
+                <i class = "name">Torty:</i> Hello!
+              </span>
+            </li>
+            <li class="msg my">
+              <span class = "msg-span">
+                <i class = "name">Zeno:</i> Hello! It's me!
+              </span>
+            </li>
+            <li class="msg my">
+              <span class = "msg-span">
+                <i class = "name">Gray:</i> You sure?!
+              </span>
+            </li>
+          </ul>
+          <form id = "messageForm">
+            <input type = "text" id = "msg-input" placeholder="Enter a message">
+            <button id = "msg-btn">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <script src='./js/fireBase.js'></script>
     <script src='./js/main.js'></script>
 </body>

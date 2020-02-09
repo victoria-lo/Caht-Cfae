@@ -1,9 +1,12 @@
-  
-/* Space out content a bit */
+html {
+    height: 100%
+}
 body {
+    background-attachment: fixed;
     padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background-color:rgb(130, 205, 255);
+    padding-bottom: 2.2rem;
+    background: rgb(0,212,255);
+    background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(255,211,251,1) 100%);
 }  
 .header{
     color:white;
@@ -11,21 +14,141 @@ body {
 /* Custom page footer */
 #footer {
     position: relative;
+    top: 1rem;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
     color: white;           
 }
 
-h2, h3, h4{
+h2, h3{
     color:white;
     text-align:center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 h4{
-    margin-bottom: 0rem;
+    color:white;
+    font-size: 28px;
 }
+p{
+    margin-top: 0rem;
+    color:white;
+    font-size: 20px;
+    margin-bottom: 0.8rem;
+}
+
 .jumbotron{
-    background-color:rgb(130, 205, 255);
+    background: rgb(0,212,255);
+    background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(255,211,251,1) 100%);
+}
+
+/*Chat box styling */
+.chat{
+    width: 95%;
+    height: 500px;
+    position: relative;
+    top: 50%;
+    margin:auto;
+}  
+
+.chat-window{
+    height: 490px;
+    overflow-y: scroll;
+    padding-bottom: 65px;
+    background-color: rgb(255, 253, 248);
+    border-radius: 20px;
+    -webkit-box-shadow: 22px 24px 18px -10px rgba(0,0,0,0.35);
+    -moz-box-shadow: 22px 24px 18px -10px rgba(0,0,0,0.35);
+    box-shadow: 22px 24px 18px -10px rgba(0,0,0,0.35);
+}
+
+#messageForm{
+    background-color: rgb(145, 218, 178);
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#msg-input{
+    padding: 10px;
+    border-radius: 20px;
+    width: 85%;
+    margin-left: 2%;
+}
+
+#msg-btn{
+    width: 9%;
+    padding: 9px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(5, 190, 144);
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-left: 1%;
+}
+
+#msg-btn:hover{
+    background-color: rgb(5, 153, 116);
+}
+
+.msg{
+    list-style-type: none;
+}
+
+.msg-span{
+    display: inline-block;
+    padding:10px;
+    border-radius: 20px;
+    font-size: large;
+    background-color: #1382e2;
+    color: white;
+    margin: 15px 5px 0px 0px;
+    text-align: left;
+}
+.name{
+    font-weight: bold;
+}
+
+.my{
+    text-align: right;
+}
+
+.my span{
+    background-color: rgb(253, 143, 194);
+    margin-right: 20px;
+}
+
+.my i{
+    display:none;
+}
+
+/*Scroll styling */
+
+/* width */
+#chat-window::-webkit-scrollbar {
+width: 15px;
+}
+  
+/* Track */
+#chat-window::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+/* Handle */
+#chat-window::-webkit-scrollbar-thumb {
+box-shadow: inset 0 0 5px grey; 
+background:rgb(82, 196, 133);
+border-radius: 10px;
+}
+
+/* Handle on hover */
+#chat-window::-webkit-scrollbar-thumb:hover {
+background:rgb(5, 190, 144); 
 }

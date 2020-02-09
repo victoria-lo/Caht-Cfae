@@ -11,6 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,9 +26,10 @@
           <nav class="navbar navbar-light bg-light">
             <span class="navbar-brand mb-0 h1"><h4><b>Caht Cfae.</b></h4><i><p>Mesginsag app whti a tiswt.</p></i></span>
             <form class="form-inline">
-              <button class="btn btn-outline-primary active" id = "chat" href = "index.html">Chat<span class="sr-only">(current)</span></button>
-              <button class="btn btn-outline-primary" id = "settings" type = "click">Settings</button>
-              <button class="btn btn-outline-primary" id = "log-out" type = "click">Log Out</button>
+              <p id = "user-name"></p>
+              <button class="btn btn-outline-primary active" id = "chat" href = "index.html">Caht<span class="sr-only">(current)</span></button>
+              <button class="btn btn-outline-primary" id = "settings" type = "click">Steitngs</button>
+              <button class="btn btn-outline-primary" id = "log-out" type = "click">Lgo Otu</button>
             </form>
           </nav>
         </div>
@@ -38,48 +40,13 @@
           <ul id = "messages">
             <li class="msg">
               <span class = "msg-span">
-                <i class = "name">BunnyBoots:</i> Hello!
-              </span>
-            </li>
-            <li class="msg">
-              <span class = "msg-span">
-                <i class = "name">Torty:</i> Hello!
-              </span>
-            </li>
-            <li class="msg my">
-              <span class = "msg-span">
-                <i class = "name">Zeno:</i> Hello! It's me!
-              </span>
-            </li>
-            <li class="msg my">
-              <span class = "msg-span">
-                <i class = "name">Gray:</i> You sure?!
-              </span>
-            </li>
-            <li class="msg">
-              <span class = "msg-span">
-                <i class = "name">BunnyBoots:</i> Hello!
-              </span>
-            </li>
-            <li class="msg">
-              <span class = "msg-span">
-                <i class = "name">Torty:</i> Hello!
-              </span>
-            </li>
-            <li class="msg my">
-              <span class = "msg-span">
-                <i class = "name">Zeno:</i> Hello! It's me!
-              </span>
-            </li>
-            <li class="msg my">
-              <span class = "msg-span">
-                <i class = "name">Gray:</i> You sure?!
+                <i class = "name">Host: </i>Hlelo adn wlecmoe to Caht!
               </span>
             </li>
           </ul>
           <form id = "messageForm">
             <input type = "text" id = "msg-input" placeholder="Enter a message">
-            <button id = "msg-btn">Send</button>
+            <button id = "msg-btn" type = "submit">Send</button>
           </form>
         </div>
       </div>

@@ -17,4 +17,3 @@ var app_fireBase = {};
 
 })()
 
-const msgScreen = document.getElementById("")

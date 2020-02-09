@@ -16,7 +16,7 @@ function init(){
           // User is signed in. Get their name.
           name = user.displayName;
           msgRef.on('child_added', updateMsgs);
-          userName.innerHTML = "Wleocme, " + name;
+          userName.innerHTML = "Wleocme, " + name + "!";
         }else{
             //redirect to login page
             uid = null;

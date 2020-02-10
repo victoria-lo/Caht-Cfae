@@ -18,8 +18,13 @@ function init(){
         }
     });
 
-    //get current encrytion settings and display it first in the dropdown
-    encryptMode = fetchJson(); 
+    //get current encryption settings and display it first in the dropdown
+    if(!fetchJson()){
+        encryptMode = "nr";
+    }else{
+        encryptMode = fetchJson();
+    }
+    console.log(encryptMode);
     document.getElementById(encryptMode).selected = "selected";
 
     document.getElementById('log-out').addEventListener('click', logOut);

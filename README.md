@@ -1,4 +1,4 @@
-# Caht Cfae ![logo|512x512,20%](https://github.com/victoria-lo/Chat-Cafe/blob/master/public/img/Caht-Logo.png?raw=true)
+# Caht Cfae ![logo](https://github.com/victoria-lo/Chat-Cafe/blob/master/public/img/Caht-Logo.png?raw=true =100x100)
 **FireBase chat messaging app with a strange twist**
 > 100DaysOfCode: Day 6
 

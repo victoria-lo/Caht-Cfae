@@ -1,7 +1,7 @@
 ![logo](https://github.com/victoria-lo/Chat-Cafe/blob/master/public/img/Caht-Logo-Small.png?raw=true)
 
 **FireBase chat messaging app with a strange twist**
-> 100DaysOfCode: Day 6
+> 100DaysOfCode: Day 6-8
 
 📝 [DEVLOG #1](https://medium.com/@victoria2666/100-days-of-code-day-6-of-100-d1c2ee038aca)
 

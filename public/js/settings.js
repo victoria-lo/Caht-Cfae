@@ -30,8 +30,11 @@ function logOut(){
       });
 }
 
+//Update settings
 function saveSettings(){
     var user = firebase.auth().currentUser;
+
+    //Display Name settings
     if(setName.value.trim()){
         user.updateProfile({
             displayName: setName.value
@@ -43,6 +46,8 @@ function saveSettings(){
               console.log(error);
         });
     }
+
+    //New Password settings
     var newPassword = document.getElementById("inputPassword6").value;
     if(newPassword.trim()){
         user.updatePassword(newPassword).then(function() {
@@ -51,6 +56,25 @@ function saveSettings(){
             console.log(error);
         });
     }
+  
+
+    //Ecryption Mode settings (nr, nn, cr)
+    var encryption = document.getElementById("encryption-mode");
+    var selectedMode = encryption.options[encryption.selectedIndex].value; 
+
+    if(selectedMode == "nr"){ //Normal
+        //Change chat to normal encryption
+        console.log("Normal encryption set.");
+    }
+    else if(selectedMode =="nn"){
+        //No encryption
+        console.log("No encryption set.");
+    }
+    else{ //Crazy
+        //Change to crazy encryption
+        console.log("Crazy encryption set.");
+    }
+    
     
 }
 

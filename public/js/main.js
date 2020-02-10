@@ -8,7 +8,6 @@ const msgBtn = document.getElementById("msg-btn");
 const userName = document.getElementById("user-name");
 const db = firebase.database();
 const msgRef = db.ref("/msgs"); //save in msgs folder in database
-//const id = uuid();
 
 function init(){
 
@@ -42,11 +41,17 @@ function logOut(){
 
 const updateMsgs = data =>{
   const {email: userEmail , name, text} = data.val();
+
+  //Check the encrypting mode
+  var outputText = text + "ECRYPT";
+  
   const msg = `<li class="${email == userEmail ? "msg my": "msg"}"><span class = "msg-span">
-    <i class = "name">${name}: </i>${text}
+    <i class = "name">${name}: </i>${outputText}
     </span>
   </li>`
   msgScreen.innerHTML += msg;
+  document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
+  //auto scroll to bottom
 }
 
 function sendMessage(e){

@@ -6,6 +6,8 @@
 
 📝 [DEVLOG #2](https://medium.com/@victoria2666/100-days-of-code-day-7-of-100-aa59e57d8721)
 
+📝 [DEVLOG #3](https://medium.com/@victoria2666/100-days-of-code-day-8-of-100-f8799cb97f3a)
+
 👀 [VIEW PROJECT](https://caht-viclo.firebaseapp.com/)
 
 ## The Project

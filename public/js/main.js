@@ -47,8 +47,6 @@ const updateMsgs = data =>{
   msgScreen.innerHTML += msg;
 }
 
-document.addEventListener('DOMContentLoaded',init);
-
 function sendMessage(e){
   e.preventDefault();
   const text = msgInput.value;
@@ -64,3 +62,4 @@ function sendMessage(e){
     msgInput.value = "";
 }
 
+document.addEventListener('DOMContentLoaded',init);

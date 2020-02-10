@@ -27,32 +27,49 @@
             <span class="navbar-brand mb-0 h1"><h4><b>Caht Cfae.</b></h4><i><p>Mesginsag app whti a tiswt.</p></i></span>
             <form class="form-inline">
               <p id = "user-name"></p>
-              <a class="btn btn-outline-primary active" id = "chat" href = "index.html">Caht<span class="sr-only">(current)</span></a>
-              <a class="btn btn-outline-primary" id = "settings" href = "settings.html">Steitngs</a>
+              <a class="btn btn-outline-primary" id = "chat" href = "index.html">Caht</a>
+              <a class="btn btn-outline-primary active" id = "settings" href = "settings.html">Steitngs<span class="sr-only">(current)</span></a>
               <button class="btn btn-outline-primary" id = "log-out" type = "click">Lgo Otu</button>
             </form>
           </nav>
         </div>
-      
 
-      <div class = "chat">
-        <div class = "chat-window" id = "chat-window">
-          <ul id = "messages">
-            <li class="msg">
-              <span class = "msg-span">
-                <i class = "name">Host: </i>Hlelo adn wlecmoe to Caht!
-              </span>
-            </li>
-          </ul>
-          <form id = "messageForm">
-            <input type = "text" id = "msg-input" placeholder="Enter a message">
-            <button id = "msg-btn" type = "submit">Send</button>
-          </form>
-        </div>
+        <div class = "container">
+          <dl class="form-group">
+            <dt><label for="user_profile_name">Display Name</label></dt>
+            <dd>
+              <input class="form-control" type="text" value="" name="user[profile_name]" id="user_profile_name">
+            </dd>
+            <dd><small class="text-muted">
+              The name will be displayed to the public.
+            </small></dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="inputPassword6">Password</label></dt>
+            <dd><input type="password" id="inputPassword6" class="form-control mr-sm-2" aria-describedby="passwordHelpInline"></dd>
+            <small id="passwordHelpInline" class="text-muted">
+              Must be 8-20 characters long.
+            </small>
+          </dl>
+  
+        <dl class="form-group">
+          <dt><label for="user_profile_bio">Encryption Mode</label></dt>
+          <select class="custom-select mr-sm-2" name="encryption-mode" id="encryption-mode"><option value="Normal">Normal</option>
+            <option value="nn">None</option>
+            <option value="cr">Crazy</option>
+          </select>
+          <dd><small class="text-muted">
+            Chat Encrypting Options.
+          </small></dd>
+        </dl>
+
+        <p><button type="submit" class="btn btn-primary">Update Settings</button></p>
       </div>
+      
     </div>
     <script src='./js/fireBase.js'></script>
-    <script src='./js/main.js'></script>
+    <script src='./js/settings.js'></script>
 </body>
 
 <footer id = "footer" class="page-footer font-small blue">

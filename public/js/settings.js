@@ -1,5 +1,7 @@
+var firebase = app_fireBase;
 const userName = document.getElementById("user-name");
 const setName = document.getElementById("user_profile_name");
+
 function init(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -15,6 +17,7 @@ function init(){
     });
 
     document.getElementById('log-out').addEventListener('click', logOut);
+    document.getElementById('save-settings').addEventListener('click', saveSettings);
 }
 
 function logOut(){
@@ -25,6 +28,30 @@ function logOut(){
 
         console.error(error);
       });
+}
+
+function saveSettings(){
+    var user = firebase.auth().currentUser;
+    if(setName.value.trim()){
+        user.updateProfile({
+            displayName: setName.value
+          }).then(function() {
+              userName.innerHTML = "Wleocme, " + setName.value + "!";
+              console.log("Name saved");
+            
+          }).catch(function(error) {
+              console.log(error);
+        });
+    }
+    var newPassword = document.getElementById("inputPassword6").value;
+    if(newPassword.trim()){
+        user.updatePassword(newPassword).then(function() {
+            console.log("Password saved");
+          }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    
 }
 
 document.addEventListener('DOMContentLoaded',init);

@@ -13,6 +13,18 @@ function init(){
             window.location.replace("login.html");
         }
     });
+
+    document.getElementById('log-out').addEventListener('click', logOut);
+}
+
+function logOut(){
+    firebase.auth().signOut().then(function() {
+        console.log("SIGN OUT");
+        window.location.replace("login.html");
+      }).catch(function(error) {
+
+        console.error(error);
+      });
 }
 
 document.addEventListener('DOMContentLoaded',init);

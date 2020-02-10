@@ -2,7 +2,7 @@ html {
     height: 100%
 }
 body {
-    background-image: url("../img/Background.png");
+    background-image: url("/img/Background.png");
     padding-bottom: 1.2rem;
     height: 100%; 
     background-position: center;

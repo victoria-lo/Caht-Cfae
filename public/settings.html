@@ -45,23 +45,27 @@
             </small></dd>
           </dl>
 
-          <dl class="form-group">
-            <dt><label for="inputPassword6">Password</label></dt>
-            <dd><input type="password" id="inputPassword6" class="form-control mr-sm-2" aria-describedby="passwordHelpInline"></dd>
-            <small id="passwordHelpInline" class="text-muted">
-              Must be 8-20 characters long.
-            </small>
-          </dl>
+          <dt><label for="inputPassword">Update Password</label></dt>
+          <div class="row">
+            <div class = "col">
+              <dd><input type="password" id="inputPassword" class="form-control mr-sm-2" placeholder="Current Password"></dd>
+              <small id="passwordCurrent" class="text-muted">Input current password.</small>
+            </div>
+            <div class = "col">
+              <dd><input type="password" id="inputPassword6" class="form-control mr-sm-2" placeholder="New Password"></dd>
+              <small id="passwordHelpInline" class="text-muted">New password must be 8-20 characters long.</small>
+            </div>
+          </div>
   
         <dl class="form-group">
           <dt><label for="user_profile_bio">Encryption Mode</label></dt>
           <select class="custom-select mr-sm-2" name="encryption-mode" id="encryption-mode">
-            <option value="nr">Normal</option>
-            <option value="nn">None</option>
-            <option value="cr">Crazy</option>
+            <option id = "nr"value="nr">Normal</option>
+            <option id = "nn" value="nn">None</option>
+            <option id = "cr" value="cr">Crazy</option>
           </select>
           <dd><small class="text-muted">
-            Chat Encrypting Options.
+            Chat encrypting options.
           </small></dd>
         </dl>
 

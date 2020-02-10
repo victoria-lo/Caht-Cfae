@@ -1,20 +1,26 @@
 var firebase = app_fireBase;
 const userName = document.getElementById("user-name");
 const setName = document.getElementById("user_profile_name");
+const encryption = document.getElementById("encryption-mode");
+var encryptMode = null;
+var name = "";
 
 function init(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
         // User is signed in. Get their name.
-        var name = user.displayName;
+        name = user.displayName;
         userName.innerHTML = "Wleocme, " + name + "!";
         setName.value = name;
         }else{
             //redirect to login page
-            uid = null;
             window.location.replace("login.html");
         }
     });
+
+    //get current encrytion settings and display it first in the dropdown
+    encryptMode = fetchJson(); 
+    document.getElementById(encryptMode).selected = "selected";
 
     document.getElementById('log-out').addEventListener('click', logOut);
     document.getElementById('save-settings').addEventListener('click', saveSettings);
@@ -34,48 +40,63 @@ function logOut(){
 function saveSettings(){
     var user = firebase.auth().currentUser;
 
-    //Display Name settings
+    //Display Name settings - update name if input not empty and a new name is entered
     if(setName.value.trim()){
-        user.updateProfile({
-            displayName: setName.value
-          }).then(function() {
-              userName.innerHTML = "Wleocme, " + setName.value + "!";
-              console.log("Name saved");
-            
-          }).catch(function(error) {
-              console.log(error);
-        });
+        if(name !== setName.value){
+            user.updateProfile({
+                displayName: setName.value
+              }).then(function() {
+                  userName.innerHTML = "Wleocme, " + setName.value + "!";
+                  console.log("Name saved");
+                
+              }).catch(function(error) {
+                  console.log(error);
+            });
+        }
     }
 
-    //New Password settings
+    //New Password settings - update only if new Password is different from current
     var newPassword = document.getElementById("inputPassword6").value;
-    if(newPassword.trim()){
-        user.updatePassword(newPassword).then(function() {
-            console.log("Password saved");
-          }).catch(function(error) {
+    var password =  document.getElementById("inputPassword").value;
+    if(newPassword.trim() && password.trim()){
+        reauthenticate(password).then(()=>{
+            user.updatePassword(newPassword).then(function() {
+                console.log("New Password: '" + newPassword+ "' saved");
+                newPassword = "";
+                password = "";
+              }).catch(function(error) {
+                console.log(error);
+            });
+        }).catch(function(error) {
             console.log(error);
         });
     }
-  
 
     //Ecryption Mode settings (nr, nn, cr)
-    var encryption = document.getElementById("encryption-mode");
-    var selectedMode = encryption.options[encryption.selectedIndex].value; 
+    var selectedMode = encryption.options[encryption.selectedIndex].value;
+    if(encryptMode !== selectedMode){
+        updateJson(selectedMode);
+        console.log("Encryption Mode updated");
+    }
+    
+}
 
-    if(selectedMode == "nr"){ //Normal
-        //Change chat to normal encryption
-        console.log("Normal encryption set.");
-    }
-    else if(selectedMode =="nn"){
-        //No encryption
-        console.log("No encryption set.");
-    }
-    else{ //Crazy
-        //Change to crazy encryption
-        console.log("Crazy encryption set.");
-    }
-    
-    
+//Reauthenticate to update password
+function reauthenticate(password){
+    var user = firebase.auth().currentUser;
+    var cred = firebase.auth.EmailAuthProvider.credential(user.email, password);
+    return user.reauthenticateWithCredential(cred);
+}
+
+//updates encryption settings
+function updateJson(selectedMode){
+    localStorage.setItem('settings',JSON.stringify(selectedMode));
+}
+
+//Get encryption settings
+function fetchJson(){
+    var settings = JSON.parse(localStorage.getItem('settings'));
+    return settings;
 }
 
 document.addEventListener('DOMContentLoaded',init);

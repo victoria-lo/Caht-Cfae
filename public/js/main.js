@@ -20,7 +20,6 @@ function init(){
           userName.innerHTML = "Wleocme, " + name + "!";
         }else{
             //redirect to login page
-            uid = null;
             window.location.replace("login.html");
         }
       });
@@ -43,8 +42,10 @@ const updateMsgs = data =>{
   const {email: userEmail , name, text} = data.val();
 
   //Check the encrypting mode
-  var outputText = text + "ECRYPT";
-  
+  var encryptMode = fetchJson();
+  console.log(encryptMode);
+  var outputText = text;
+
   const msg = `<li class="${email == userEmail ? "msg my": "msg"}"><span class = "msg-span">
     <i class = "name">${name}: </i>${outputText}
     </span>
@@ -69,4 +70,11 @@ function sendMessage(e){
     msgInput.value = "";
 }
 
+//Get encryption settings
+function fetchJson(){
+  var settings = JSON.parse(localStorage.getItem('settings'));
+  return settings;
+}
+
 document.addEventListener('DOMContentLoaded',init);
+

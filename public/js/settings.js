@@ -11,7 +11,7 @@ function init(){
         // User is signed in. Get their name.
         name = user.displayName;
         userName.innerHTML = "Wleocme, " + name + "!";
-        setName.value = name;
+        setName.placeholder = name;
         }else{
             //redirect to login page
             window.location.replace("login.html");
@@ -47,7 +47,7 @@ function saveSettings(){
                 displayName: setName.value
               }).then(function() {
                   userName.innerHTML = "Wleocme, " + setName.value + "!";
-                  console.log("Name saved");
+                  document.getElementById("name-info").innerHTML = "<b>New display name SAVED!</b>";
                 
               }).catch(function(error) {
                   console.log(error);
@@ -55,20 +55,22 @@ function saveSettings(){
         }
     }
 
-    //New Password settings - update only if new Password is different from current
-    var newPassword = document.getElementById("inputPassword6").value;
-    var password =  document.getElementById("inputPassword").value;
-    if(newPassword.trim() && password.trim()){
-        reauthenticate(password).then(()=>{
-            user.updatePassword(newPassword).then(function() {
-                console.log("New Password: '" + newPassword+ "' saved");
-                newPassword = "";
-                password = "";
+    //New Password settings - update only if current Password is correct and user is reauthenticated
+    const newPassword = document.getElementById("inputPassword6");
+    const password =  document.getElementById("inputPassword");
+    if(newPassword.value.trim() && password.value.trim()){
+        reauthenticate(password.value).then(()=>{
+            user.updatePassword(newPassword.value).then(function() {
+                document.getElementById("passwordCurrent").innerHTML = "";
+                document.getElementById("passwordHelpInline").innerHTML ="<b>New password SAVED!</b>";
+                newPassword.value = "";
+                password.value = "";
               }).catch(function(error) {
-                console.log(error);
+                document.getElementById("passwordCurrent").innerHTML = "Current password OK.";
+                  document.getElementById("passwordHelpInline").innerHTML = error;
             });
         }).catch(function(error) {
-            console.log(error);
+            document.getElementById("passwordCurrent").innerHTML = error;
         });
     }
 
@@ -76,7 +78,7 @@ function saveSettings(){
     var selectedMode = encryption.options[encryption.selectedIndex].value;
     if(encryptMode !== selectedMode){
         updateJson(selectedMode);
-        console.log("Encryption Mode updated");
+        document.getElementById("encrypt-info").innerHTML = "<b>Encryption mode UPDATED!</b>";
     }
     
 }

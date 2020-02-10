@@ -40,23 +40,25 @@
             <dd>
               <input class="form-control" type="text" value="" name="user[profile_name]" id="user_profile_name">
             </dd>
-            <dd><small class="text-muted">
+            <dd><small id = "name-info" class="text-muted">
               The name will be displayed to the public.
             </small></dd>
           </dl>
 
-          <dt><label for="inputPassword">Update Password</label></dt>
-          <div class="row">
-            <div class = "col">
-              <dd><input type="password" id="inputPassword" class="form-control mr-sm-2" placeholder="Current Password"></dd>
-              <small id="passwordCurrent" class="text-muted">Input current password.</small>
+          <dl class="form-group">
+            <dt><label for="inputPassword">Update Password</label></dt>
+            <div class="row">
+              <div class = "col">
+                <dd><input type="password" id="inputPassword" class="form-control mr-sm-2" placeholder="Current Password"></dd>
+                <small id="passwordCurrent" class="text-muted">Input current password.</small>
+              </div>
+              <div class = "col">
+                <dd><input type="password" id="inputPassword6" class="form-control mr-sm-2" placeholder="New Password"></dd>
+                <small id="passwordHelpInline" class="text-muted">New password must be 8-20 characters long.</small>
+              </div>
             </div>
-            <div class = "col">
-              <dd><input type="password" id="inputPassword6" class="form-control mr-sm-2" placeholder="New Password"></dd>
-              <small id="passwordHelpInline" class="text-muted">New password must be 8-20 characters long.</small>
-            </div>
-          </div>
-  
+          </dl>
+          
         <dl class="form-group">
           <dt><label for="user_profile_bio">Encryption Mode</label></dt>
           <select class="custom-select mr-sm-2" name="encryption-mode" id="encryption-mode">
@@ -64,7 +66,7 @@
             <option id = "nn" value="nn">None</option>
             <option id = "cr" value="cr">Crazy</option>
           </select>
-          <dd><small class="text-muted">
+          <dd><small id = "encrypt-info" class="text-muted">
             Chat encrypting options.
           </small></dd>
         </dl>
